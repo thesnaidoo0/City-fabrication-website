@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Online Store | City Fabrication and Sheet Metal Works</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f4f6f8;
+  color:#222;
+}
+
+header{
+  background:#0b2f5b;
+  color:white;
+  padding:18px;
+  text-align:center;
+}
+
+header h1{
+  font-size:25px;
+  margin-bottom:6px;
+}
+
+header p{
+  font-size:14px;
+}
+
+nav{
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  padding:13px;
+  box-shadow:0 2px 5px rgba(0,0,0,.12);
+}
+
+nav a{
+  text-decoration:none;
+  color:#0b2f5b;
+  font-weight:bold;
+  padding:8px 11px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#0b2f5b,#174f8a);
+  color:white;
+  padding:45px 20px;
+  text-align:center;
+}
+
+.hero h2{
+  font-size:32px;
+  margin-bottom:12px;
+}
+
+.hero p{
+  max-width:750px;
+  margin:auto;
+  line-height:1.6;
+}
+
+.search-box{
+  max-width:700px;
+  margin:25px auto;
+  padding:0 15px;
+}
+
+.search-box input{
+  width:100%;
+  padding:15px;
+  border-radius:8px;
+  border:1px solid #bbb;
+  font-size:16px;
+}
+
+.categories{
+  text-align:center;
+  padding:5px 15px 20px;
+}
+
+.categories button{
+  margin:5px;
+  padding:10px 14px;
+  border:none;
+  border-radius:6px;
+  background:#0b2f5b;
+  color:white;
+  cursor:pointer;
+}
+
+.store{
+  max-width:1200px;
+  margin:auto;
+  padding:10px 20px 40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.product{
+  background:white;
+  border-radius:10px;
+  padding:20px;
+  box-shadow:0 2px 10px rgba(0,0,0,.1);
+  display:flex;
+  flex-direction:column;
+}
+
+.product .icon{
+  height:110px;
+  border-radius:8px;
+  background:#e8eef5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:55px;
+  margin-bottom:15px;
+}
+
+.product h3{
+  color:#0b2f5b;
+  margin-bottom:8px;
+}
+
+.product p{
+  font-size:14px;
+  line-height:1.5;
+  flex-grow:1;
+}
+
+.product button{
+  margin-top:15px;
+  background:#d8232a;
+  color:white;
+  border:none;
+  padding:12px;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.cart{
+  position:fixed;
+  bottom:15px;
+  right:15px;
+  background:#d8232a;
+  color:white;
+  border:none;
+  border-radius:30px;
+  padding:15px 20px;
+  font-weight:bold;
+  box-shadow:0 3px 10px rgba(0,0,0,.25);
+  cursor:pointer;
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:1000;
+  padding:20px;
+  overflow:auto;
+}
+
+.modal-content{
+  max-width:600px;
+  margin:50px auto;
+  background:white;
+  border-radius:12px;
+  padding:25px;
+}
+
+.modal h2{
+  color:#0b2f5b;
+  margin-bottom:15px;
+}
+
+.cart-item{
+  border-bottom:1px solid #ddd;
+  padding:10px 0;
+}
+
+.checkout{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  margin-top:20px;
+  background:#0b2f5b;
+  color:white;
+  padding:14px;
+  border-radius:7px;
+  font-weight:bold;
+}
+
+.close{
+  float:right;
+  font-size:28px;
+  cursor:pointer;
+}
+
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:28px 15px;
+  line-height:1.7;
+}
+
+footer a{
+  color:white;
+}
+
+@media(max-width:600px){
+  .hero h2{
+    font-size:26px;
+  }
+
+  header h1{
+    font-size:21px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>City Fabrication and Sheet Metal Works (Pty) Ltd</h1>
+  <p>Industrial Insulation • Cladding • Sheet Metal Fabrication</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="products.html">Products</a>
+  <a href="services.html">Services</a>
+  <a href="projects.html">Projects</a>
+  <a href="store.html">Online Store</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section class="hero">
+  <h2>Industrial Insulation & Sheet Metal Online Store</h2>
+  <p>
+    Browse insulation materials, stainless steel and aluminium cladding,
+    fasteners, accessories and fabricated sheet-metal products.
+    Add the products you need to your quote basket and send us your enquiry.
+  </p>
+</section>
+
+<div class="search-box">
+  <input
+    type="text"
+    id="search"
+    placeholder="Search insulation, cladding, fasteners..."
+    onkeyup="searchProducts()">
+</div>
+
+<div class="categories">
+  <button onclick="filterProducts('all')">All Products</button>
+  <button onclick="filterProducts('insulation')">Insulation</button>
+  <button onclick="filterProducts('cladding')">Cladding</button>
+  <button onclick="filterProducts('fabrication')">Fabrication</button>
+  <button onclick="filterProducts('fasteners')">Fasteners</button>
+</div>
+
+<section class="store">
+
+<div class="product" data-category="insulation">
+<div class="icon">🧱</div>
+<h3>Rockwool Pipe Sections</h3>
+<p>Pre-formed thermal insulation pipe sections for industrial hot and cold pipework.</p>
+<button onclick="addToCart('Rockwool Pipe Sections')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="insulation">
+<div class="icon">🔥</div>
+<h3>Rockwool Wired Mattress</h3>
+<p>High-temperature wired insulation mattress suitable for boilers, vessels and industrial equipment.</p>
+<button onclick="addToCart('Rockwool Wired Mattress')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="insulation">
+<div class="icon">🏠</div>
+<h3>Aerolite Roof Insulation</h3>
+<p>Lightweight thermal and acoustic insulation for commercial and industrial roofing applications.</p>
+<button onclick="addToCart('Aerolite Roof Insulation')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="insulation">
+<div class="icon">❄️</div>
+<h3>Polyurethane Insulation</h3>
+<p>High-performance rigid insulation available in pipe sections and flat sheets.</p>
+<button onclick="addToCart('Polyurethane Insulation')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="insulation">
+<div class="icon">♨️</div>
+<h3>Ceramic Fibre Blanket</h3>
+<p>High-temperature ceramic fibre insulation for furnaces, boilers and specialist industrial applications.</p>
+<button onclick="addToCart('Ceramic Fibre Blanket')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="insulation">
+<div class="icon">🌬️</div>
+<h3>Ductwrap Insulation</h3>
+<p>Thermal insulation for HVAC ducting and air-conditioning systems.</p>
+<button onclick="addToCart('Ductwrap Insulation')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="cladding">
+<div class="icon">⚙️</div>
+<h3>Stainless Steel Cladding</h3>
+<p>Stainless steel grades 304, 316 and 430 for industrial insulation cladding applications.</p>
+<button onclick="addToCart('Stainless Steel Cladding')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="cladding">
+<div class="icon">🔩</div>
+<h3>Aluminium Cladding</h3>
+<p>Aluminium sheet and fabricated insulation cladding for pipes, tanks and equipment.</p>
+<button onclick="addToCart('Aluminium Cladding')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="cladding">
+<div class="icon">🏭</div>
+<h3>Galvanized Cladding</h3>
+<p>Durable galvanized sheet-metal cladding for industrial and commercial applications.</p>
+<button onclick="addToCart('Galvanized Cladding')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="fabrication">
+<div class="icon">⭕</div>
+<h3>Pipe Muffs</h3>
+<p>Custom fabricated insulation cladding muffs manufactured to your required pipe diameter.</p>
+<button onclick="addToCart('Pipe Muffs')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="fabrication">
+<div class="icon">↪️</div>
+<h3>Lobster Bends</h3>
+<p>Custom fabricated segmented bends for insulated pipework.</p>
+<button onclick="addToCart('Lobster Bends')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="fabrication">
+<div class="icon">🔻</div>
+<h3>Reducers</h3>
+<p>Sheet-metal reducers manufactured in stainless steel, aluminium or galvanized material.</p>
+<button onclick="addToCart('Reducers')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="fabrication">
+<div class="icon">📦</div>
+<h3>Valve & Flange Boxes</h3>
+<p>Removable fabricated cladding boxes for insulated valves, flanges and strainers.</p>
+<button onclick="addToCart('Valve and Flange Boxes')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="fasteners">
+<div class="icon">🔩</div>
+<h3>Pop Rivets</h3>
+<p>Aluminium and stainless-steel pop rivets for cladding and sheet-metal installation.</p>
+<button onclick="addToCart('Pop Rivets')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="fasteners">
+<div class="icon">🧰</div>
+<h3>Self-Tapping Screws</h3>
+<p>Galvanized and stainless-steel self-tapping screws for industrial sheet-metal work.</p>
+<button onclick="addToCart('Self-Tapping Screws')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="fasteners">
+<div class="icon">➰</div>
+<h3>Stainless Steel Strapping</h3>
+<p>Industrial strapping band for securing insulation cladding and pipe coverings.</p>
+<button onclick="addToCart('Stainless Steel Strapping')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="fasteners">
+<div class="icon">📌</div>
+<h3>Insulation Pins</h3>
+<p>Insulation fixing pins suitable for ducting, vessels and industrial equipment.</p>
+<button onclick="addToCart('Insulation Pins')">Add to Quote</button>
+</div>
+
+<div class="product" data-category="fasteners">
+<div class="icon">🧴</div>
+<h3>Adhesives & Sealants</h3>
+<p>Industrial contact adhesives, silicone mastics and sealants for insulation installation.</p>
+<button onclick="addToCart('Adhesives and Sealants')">Add to Quote</button>
+</div>
+
+</section>
+
+<button class="cart" onclick="openCart()">
+Quote Basket (<span id="cartCount">0</span>)
+</button>
+
+<div id="cartModal" class="modal">
+<div class="modal-content">
+
+<span class="close" onclick="closeCart()">×</span>
+
+<h2>Your Quote Request</h2>
+
+<div id="cartItems"></div>
+
+<a id="emailQuote" class="checkout" href="#">
+Email Quote Request
+</a>
+
+</div>
+</div>
+
+<footer>
+
+<strong>City Fabrication and Sheet Metal Works (Pty) Ltd</strong><br>
+
+Lenasia, Gauteng, South Africa<br>
+
+Sales:
+<a href="mailto:sales@cityfsmw.co.za">
+sales@cityfsmw.co.za
+</a>
+
+<br>
+
+Projects:
+<a href="mailto:projects@cityfsmw.co.za">
+projects@cityfsmw.co.za
+</a>
+
+<br><br>
+
+© 2026 City Fabrication and Sheet Metal Works (Pty) Ltd
+
+</footer>
+
+<script>
+
+let cart=[];
+
+function addToCart(product){
+
+cart.push(product);
+
+document.getElementById("cartCount").innerText=cart.length;
+
+alert(product+" added to your quote basket.");
+
+}
+
+function openCart(){
+
+document.getElementById("cartModal").style.display="block";
+
+let area=document.getElementById("cartItems");
+
+area.innerHTML="";
+
+if(cart.length===0){
+
+area.innerHTML="<p>Your quote basket is empty.</p>";
+
+}else{
+
+cart.forEach(function(item,index){
+
+area.innerHTML+=
+'<div class="cart-item">'+
+(index+1)+'. '+item+
+'</div>';
+
+});
+
+}
+
+let subject=encodeURIComponent(
+"Online Store Quote Request - City Fabrication"
+);
+
+let body=encodeURIComponent(
+"Good day City Fabrication,\n\n"+
+"I would like a quotation for the following products:\n\n"+
+cart.map((x,i)=>(i+1)+". "+x).join("\n")+
+"\n\nPlease contact me regarding pricing and availability.\n\n"+
+"Name:\nCompany:\nTelephone:\nDelivery Location:\n"
+);
+
+document.getElementById("emailQuote").href=
+"mailto:sales@cityfsmw.co.za?subject="+subject+"&body="+body;
+
+}
+
+function closeCart(){
+
+document.getElementById("cartModal").style.display="none";
+
+}
+
+function filterProducts(category){
+
+document.querySelectorAll(".product").forEach(function(product){
+
+if(
+category==="all" ||
+product.dataset.category===category
+){
+
+product.style.display="flex";
+
+}else{
+
+product.style.display="none";
+
+}
+
+});
+
+}
+
+function searchProducts(){
+
+let search=
+document.getElementById("search").value.toLowerCase();
+
+document.querySelectorAll(".product").forEach(function(product){
+
+let text=product.innerText.toLowerCase();
+
+product.style.display=
+text.includes(search) ? "flex" : "none";
+
+});
+
+}
+
+window.onclick=function(event){
+
+let modal=document.getElementById("cartModal");
+
+if(event.target===modal){
+
+modal.style.display="none";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
